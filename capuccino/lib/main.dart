@@ -25,7 +25,7 @@ class MyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
-        title: const AppBarComponent(navIconOne: "image/arrow-left", navIconTwo: "image/Heart", titleMain: "Detail"),
+        title: const AppBarComponent(navIconOne: "image/arrow-left.jpg", navIconTwo: "image/Heart.jpg", titleMain: "Detail"),
       ),);
   }
 }

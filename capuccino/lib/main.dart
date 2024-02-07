@@ -39,22 +39,32 @@ class AppBarComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Image.asset(navIconOne,
-      width: 100,
-      height: 100,),
-      Text(titleMain,
-      style: const TextStyle(
-        fontFamily: "Sora",
-        fontSize: 20.0,
-        fontWeight: FontWeight.bold,
-      ),), 
-      Image.asset(navIconTwo,
-      width: 100,
-      height: 100,),
-      ],
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 20.0),
+      child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+           Padding(
+             padding: const EdgeInsets.only(left: 20.0),
+             child: Image.asset(navIconOne,
+                     ),
+           ),   
+          Text(
+                titleMain,
+              style: const TextStyle(
+                fontFamily: "Sora",
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold, 
+              ),),
+       
+       Padding(
+         padding: const EdgeInsets.only(right: 20.0),
+         child: Image.asset(navIconTwo,
+           ),
+       ),
+      
+        ],
+      ),
     );
   }
 }

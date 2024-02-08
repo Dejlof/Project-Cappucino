@@ -11,6 +11,8 @@ class MyApp extends StatelessWidget {
   static const Color lightbrown = Color(0xFFC67C4E);
   static const Color yellow = Color(0xFFFBBE21);
   static const Color grey = Color(0xFF9B9B9B);
+  static const Color seashell = Color(0xFFFFF5EE);
+  static const Color lightgray = Color(0xFFF9F9F9);
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +47,7 @@ class MyPage extends StatelessWidget {
                   "A cappucino is an approximately 150ml (5 oz) beverage, with 25ml of expresso coffee and 85ml of fresh milk the fo..",
               secondSetence: 'Read More',
             ),
-       
+            SizeSection(title: "Size"),
           ],
         ),
       ),
@@ -133,37 +135,123 @@ class DescriptionSection extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.only(bottom: 12.0),
-            child: Text(title,
-            style: const TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              fontFamily: "Sora",
-              color: MyApp.black,
-            ),),
+            child: Text(
+              title,
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                fontFamily: "Sora",
+                color: MyApp.black,
+              ),
+            ),
           ),
           RichText(
-              text: TextSpan(children: [
-            TextSpan(
-              text: firstSentence,
-               style: const TextStyle(
-            fontFamily: "Sora",
-            color: MyApp.grey,
-            letterSpacing: 1.5,
-          ),
-            ),
-            TextSpan(
-                text: secondSetence,
+              text: TextSpan(
+            children: [
+              TextSpan(
+                text: firstSentence,
                 style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                   fontFamily: "Sora",
-                   color: MyApp.lightbrown,
-                   letterSpacing: 1.5,
-                ))
-          ], ))
+                  fontFamily: "Sora",
+                  color: MyApp.grey,
+                  letterSpacing: 1.5,
+                ),
+              ),
+              TextSpan(
+                  text: secondSetence,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Sora",
+                    color: MyApp.lightbrown,
+                    letterSpacing: 1.5,
+                  ))
+            ],
+          ))
         ],
       ),
     );
   }
 }
 
+class SizeSection extends StatelessWidget {
+  const SizeSection({super.key, required this.title});
 
+  final String title;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(4.0, 0.0, 4.0, 40.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left:37.0, bottom:12.0),
+            child: Text(title,
+                style: 
+                const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Sora",
+                  color: MyApp.black,
+                )
+                ),
+          ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizeButton(
+                  borderColor:MyApp.grey, 
+                  background: Colors.white, 
+                  textColor: MyApp.black, 
+                  boxtext: "S"),
+                  SizeButton(
+                  borderColor:MyApp.lightbrown, 
+                  background: MyApp.seashell, 
+                  textColor: MyApp.lightbrown, 
+                  boxtext: "M"),
+                  SizeButton(
+                  borderColor:MyApp.grey, 
+                  background: Colors.white, 
+                  textColor: MyApp.black, 
+                  boxtext: "L"),
+                ],
+              )
+        ],
+      ),
+    );
+  }
+}
+
+class SizeButton extends StatelessWidget {
+  const SizeButton(
+      {super.key,
+      required this.borderColor,
+      required this.background,
+      required this.textColor,
+      required this.boxtext});
+
+  final Color borderColor;
+  final Color background;
+  final Color textColor;
+  final String boxtext;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 100,
+      height: 40,
+      decoration: BoxDecoration(
+        color: background,
+        border: Border.all(color: borderColor, width: 1),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Center(
+        child: Text(
+          boxtext,
+          style: TextStyle(
+            color: textColor,
+          ),
+        ),
+      ),
+    );
+  }
+}

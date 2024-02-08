@@ -63,7 +63,7 @@ flutter:
     - image/Heart.jpg
     - image/milk.jpg
     - image/Rectangle.jpg
-    
+    - image/bean.jpg
 
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages

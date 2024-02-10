@@ -17,9 +17,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)),
+      title: 'Capuccino',
+      theme: ThemeData(primaryColor: Colors.white),
+      debugShowCheckedModeBanner: false,
       home: const MyPage(),
     );
   }
@@ -36,18 +36,20 @@ class MyPage extends StatelessWidget {
             navIconOne: "image/arrow-left.jpg",
             navIconTwo: "image/Heart.jpg",
             titleMain: "Detail"),
+        elevation: 0,
       ),
       body: const SingleChildScrollView(
         child: Column(
           children: [
             ImageSection(image: "image/Rectangle.jpg"),
             MenuSection(
-              menuWord: 'Cappucino', 
-              addOns: 'with Chocolate', 
-              rating: '4.8', 
-              ratingPeople: '(230)', 
-              menuIconOne: 'image/bean.jpg', 
-              menuIconTwo: 'image/milk.jpg',),
+              menuWord: 'Cappucino',
+              addOns: 'with Chocolate',
+              rating: '4.8',
+              ratingPeople: '(230)',
+              menuIconOne: 'image/bean.jpg',
+              menuIconTwo: 'image/milk.jpg',
+            ),
             Padding(
               padding: EdgeInsets.only(left: 40.0, right: 40.0),
               child: Divider(
@@ -65,6 +67,7 @@ class MyPage extends StatelessWidget {
           ],
         ),
       ),
+   
     );
   }
 }
@@ -130,13 +133,14 @@ class ImageSection extends StatelessWidget {
 }
 
 class MenuSection extends StatelessWidget {
-  const MenuSection({super.key, 
-  required this.menuWord, 
-  required this.addOns, 
-  required this.rating, 
-  required this.ratingPeople, 
-  required this.menuIconOne, 
-  required this.menuIconTwo});
+  const MenuSection(
+      {super.key,
+      required this.menuWord,
+      required this.addOns,
+      required this.rating,
+      required this.ratingPeople,
+      required this.menuIconOne,
+      required this.menuIconTwo});
 
   final String menuWord;
   final String addOns;
@@ -152,60 +156,62 @@ class MenuSection extends StatelessWidget {
           top: 30.0, left: 40.0, right: 40.0, bottom: 10.0),
       child: Row(
         children: [
-           Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                menuWord,
-                style: const TextStyle(
-                  fontSize: 23.0,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: "Sora",
-                  color: MyApp.black,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 5.0, bottom: 8.0),
-                child: Text(
-                  addOns,
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  menuWord,
                   style: const TextStyle(
+                    fontSize: 23.0,
+                    fontWeight: FontWeight.bold,
                     fontFamily: "Sora",
-                    color: MyApp.grey,
-                    fontSize: 13.0,
+                    color: MyApp.black,
                   ),
                 ),
-              ),
-              Row(
-                children: [
-                  const Icon(
-                    Icons.star,
-                    color: MyApp.yellow,
-                  ),
-                  const SizedBox(width: 2.0),
-                  Text(
-                    rating,
-                    style: const TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: "Sora",
-                      color: MyApp.black,
-                    ),
-                  ),
-                  const SizedBox(width: 3.0),
-                  Text(
-                    ratingPeople,
+                Padding(
+                  padding: const EdgeInsets.only(top: 5.0, bottom: 8.0),
+                  child: Text(
+                    addOns,
                     style: const TextStyle(
                       fontFamily: "Sora",
                       color: MyApp.grey,
                       fontSize: 13.0,
                     ),
-                  )
-                ],
-              )
-            ],
+                  ),
+                ),
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.star,
+                      color: MyApp.yellow,
+                    ),
+                    const SizedBox(width: 2.0),
+                    Text(
+                      rating,
+                      style: const TextStyle(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "Sora",
+                        color: MyApp.black,
+                      ),
+                    ),
+                    const SizedBox(width: 3.0),
+                    Text(
+                      ratingPeople,
+                      style: const TextStyle(
+                        fontFamily: "Sora",
+                        color: MyApp.grey,
+                        fontSize: 13.0,
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 95.0, top: 20.0),
+            padding: const EdgeInsets.only(top: 12.0),
             child: Row(
               children: [
                 Container(
@@ -229,7 +235,7 @@ class MenuSection extends StatelessWidget {
                 )
               ],
             ),
-          )
+          ),
         ],
       ),
     );
@@ -318,20 +324,29 @@ class SizeSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SizeButton(
-                  borderColor: MyApp.grey,
-                  background: Colors.white,
-                  textColor: MyApp.black,
-                  boxtext: "S"),
+                borderColor: MyApp.grey,
+                background: Colors.white,
+                textColor: MyApp.black,
+                boxtext: "S",
+                width: 100.0,
+                height: 40.0,
+              ),
               SizeButton(
-                  borderColor: MyApp.lightbrown,
-                  background: MyApp.seashell,
-                  textColor: MyApp.lightbrown,
-                  boxtext: "M"),
+                borderColor: MyApp.lightbrown,
+                background: MyApp.seashell,
+                textColor: MyApp.lightbrown,
+                boxtext: "M",
+                width: 100.0,
+                height: 40.0,
+              ),
               SizeButton(
-                  borderColor: MyApp.grey,
-                  background: Colors.white,
-                  textColor: MyApp.black,
-                  boxtext: "L"),
+                borderColor: MyApp.grey,
+                background: Colors.white,
+                textColor: MyApp.black,
+                boxtext: "L",
+                width: 100.0,
+                height: 40.0,
+              ),
             ],
           )
         ],
@@ -346,31 +361,31 @@ class SizeButton extends StatelessWidget {
       required this.borderColor,
       required this.background,
       required this.textColor,
-      required this.boxtext});
+      required this.boxtext,
+      required this.height,
+      required this.width});
 
   final Color borderColor;
   final Color background;
   final Color textColor;
   final String boxtext;
+  final double height;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 100,
-      height: 40,
-      decoration: BoxDecoration(
-        color: background,
-        border: Border.all(color: borderColor, width: 1),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Center(
-        child: Text(
-          boxtext,
-          style: TextStyle(
-            color: textColor,
-          ),
-        ),
-      ),
+    return SizedBox(
+      width: width,
+      height: height,
+      child: ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+              backgroundColor: background,
+              foregroundColor: textColor,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  side: BorderSide(color: borderColor))),
+          child: Text(boxtext)),
     );
   }
 }

@@ -24,7 +24,7 @@ The Cappuccino project is a Flutter application that aims to replicate a detail 
 
 
 ## Replicated Design on Google Pixel 7 Emulator
- <img width="414" alt="Project Capuccino" src="image\Cappucino Pixel 7.png">
+ <img width="320" alt="Project Capuccino" src="image\Cappucino Pixel 7.png">
 
 
 

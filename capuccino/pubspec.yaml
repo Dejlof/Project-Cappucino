@@ -64,6 +64,7 @@ flutter:
     - image/milk.jpg
     - image/Rectangle.jpg
     - image/bean.jpg
+    - image/Cappucino Pixel 7.png
 
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages

@@ -67,7 +67,15 @@ class MyPage extends StatelessWidget {
           ],
         ),
       ),
-   
+      bottomNavigationBar: const BottomAppBar(
+        elevation: 0.0,
+        height: 100,
+        shadowColor: MyApp.black,
+        child: CheckOutSection(
+          cost: "\$4.53",
+          buttonWord: "Buy Now",
+        ),
+      ),
     );
   }
 }
@@ -256,7 +264,7 @@ class DescriptionSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(40.0, 10.0, 40.0, 40.0),
+      padding: const EdgeInsets.fromLTRB(40.0, 10.0, 40.0, 30.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -273,6 +281,7 @@ class DescriptionSection extends StatelessWidget {
             ),
           ),
           RichText(
+            softWrap: true,
               text: TextSpan(
             children: [
               TextSpan(
@@ -281,7 +290,7 @@ class DescriptionSection extends StatelessWidget {
                   fontFamily: "Sora",
                   color: MyApp.grey,
                   letterSpacing: 1.5,
-                ),
+                )
               ),
               TextSpan(
                   text: secondSetence,
@@ -390,3 +399,52 @@ class SizeButton extends StatelessWidget {
   }
 }
 
+class CheckOutSection extends StatelessWidget {
+  const CheckOutSection(
+      {super.key, required this.cost, required this.buttonWord});
+
+  final String cost;
+  final String buttonWord;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 30.0, right: 30.0, bottom: 10, top: 10),
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Price",
+                  style: TextStyle(
+                    fontFamily: "Sora",
+                    color: MyApp.grey,
+                  ),
+                ),
+                Text(
+                  cost,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Sora",
+                    color: MyApp.lightbrown,
+                  ),
+                )
+              ],
+            ),
+          ),
+          const SizeButton(
+            borderColor: MyApp.lightbrown,
+            background: MyApp.lightbrown,
+            textColor: Colors.white,
+            boxtext: "Buy Now",
+            width: 200.0,
+            height: 60.0,
+          ),
+        ],
+      ),
+    );
+  }
+}
